@@ -7,3 +7,7 @@
  *= require_tree .
 
 */
+
+.results-block {
+  display: inline-block
+}
