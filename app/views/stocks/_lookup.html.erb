@@ -19,12 +19,13 @@
 
   <% if @stock %>
       <div id= 'stock-lookup-results', class='well results-block'>
-      <strong >Symbol:  </strong ><%= @stock.ticker%>;
-      <strong >Primary exchange:  </strong ><%= @stock.name%>;
-      <strong >Price: </strong ><%= @stock.price%>;
+        <strong >Symbol:  </strong ><%= @stock.ticker%>;
+        <strong >Primary exchange:  </strong ><%= @stock.name%>;
+        <strong >Price: </strong ><%= @stock.price%>;
+        <%= button_to "Add to my Stocks", user_stocks_path(user: current_user, stock_ticker: @stock.ticker, stock_id: @stock.id), class: 'btn btn-sm btn-success', method: :post %>
       </div>
    <% end %>
-   <div id="stock-lookup-errors" class='mb-3results-block's></div>
+   <div id="stock-lookup-errors" class='mb-3results-block'></div>
 </div>
 
 

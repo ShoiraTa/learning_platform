@@ -1,10 +1,12 @@
 class Stock < ActiveRecord::Base
+  has_many :user_stocks
+  has_many :users, through: :user_stocks
 
   def self.find_by_ticker(ticker_symbol)
     where(ticker: ticker_symbol).first
   end
 
-  def self.new_forom_lookup(ticker_symbol)
+  def self.new_from_lookup(ticker_symbol)
     StockQuote::Stock.new(api_key: 'pk_d253aafd6f364abbb8f67e23b348b8e9')
     looked_up_stock = StockQuote::Stock.quote(ticker_symbol)
     return nil unless looked_up_stock.symbol
