@@ -11,3 +11,18 @@
 .results-block {
   display: inline-block
 }
+
+.p-0{
+  padding: 0!important;
+}
+
+.pl-1{
+  padding-left: 1rem!important;
+  padding-right: 0!important;
+}
+
+.p-15,.nav>li>a{
+  padding: 15px 15px!important
+}
+
+
