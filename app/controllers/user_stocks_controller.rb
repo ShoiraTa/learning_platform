@@ -1,5 +1,5 @@
 class UserStocksController < ApplicationController
-  before_action :set_user_stock, only: %i[ show edit update destroy ]
+  before_action :set_user_stock, only: %i[ show edit update ]
 
   # GET /user_stocks or /user_stocks.json
   def index
@@ -68,10 +68,13 @@ class UserStocksController < ApplicationController
 
   # DELETE /user_stocks/1 or /user_stocks/1.json
   def destroy
-    @user_stock.destroy
+
+    @stock = UserStock.where(:stock_id => params[:id]).first
+
+    @stock.destroy
 
     respond_to do |format|
-      format.html { redirect_to user_stocks_url, notice: "User stock was successfully destroyed." }
+      format.html { redirect_to my_portfolio_path, notice: "User stock was successfully destroyed." }
       format.json { head :no_content }
     end
   end
